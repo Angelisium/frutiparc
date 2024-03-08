@@ -49,7 +49,7 @@ body
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
 	margin-right: 0.5em;
-    background-image: url("./boutonWheel/frusion0015b.png");
+    background-image: url("../public/boutonWheel/frusion0015b.png");
 }
 #frusion #console
 {
@@ -177,8 +177,8 @@ body
 {
     width:186px;
     height:65px;
-    background-image: url("./boutonWheel/wheelMain0001a.png");
-    /*background-image: url("./cpWheelMng2.png");*/
+    background-image: url("../public/boutonWheel/wheelMain0001a.png");
+    /*background-image: url("../public/cpWheelMng2.png");*/
     position: relative;
     z-index: 100;
 }
@@ -196,12 +196,12 @@ body
 }
 .wheel.fruit
 {
-    background : url("./boutonWheel/wheelFruit.png") no-repeat center center;
+    background : url("../public/boutonWheel/wheelFruit.png") no-repeat center center;
     background-size: contain;
 }
 .wheel.horloge
 {
-    background : url("./boutonWheel/main.png") no-repeat center center;
+    background : url("../public/boutonWheel/main.png") no-repeat center center;
     background-size: contain;
 }
 @keyframes rotating {
@@ -249,15 +249,15 @@ body
 #buttonleft
 {
     margin-left:1px;
-    background-image: url('./boutonWheel/gauche0001.png');
+    background-image: url('../public/boutonWheel/gauche0001.png');
 }
 #buttonright
 {
     margin-right:3px;
-    background-image: url('./boutonWheel/droit0001.png');
+    background-image: url('../public/boutonWheel/droit0001.png');
 }
-#buttonleft:hover{background-image: url('./boutonWheel/gauche0003.png');}
-#buttonright:hover{background-image: url('./boutonWheel/droit0003.png');}
+#buttonleft:hover{background-image: url('../public/boutonWheel/gauche0003.png');}
+#buttonright:hover{background-image: url('../public/boutonWheel/droit0003.png');}
 
 #pushbtnleft,
 #pushbtnright
@@ -268,15 +268,15 @@ body
 #pushbtnleft
 {
     margin-left:1px;
-    background-image: url('./boutonWheel/swap0001.png');
+    background-image: url('../public/boutonWheel/swap0001.png');
 }
 #pushbtnright
 {
     margin-right:3px;
-    background-image: url('./boutonWheel/validate0001.png')
+    background-image: url('../public/boutonWheel/validate0001.png')
 }
-#pushbtnleft:hover{background-image: url('./boutonWheel/swap0003.png');}
-#pushbtnright:hover{background-image: url('./boutonWheel/validate0003.png');}
+#pushbtnleft:hover{background-image: url('../public/boutonWheel/swap0003.png');}
+#pushbtnright:hover{background-image: url('../public/boutonWheel/validate0003.png');}
 
 .card
 {
