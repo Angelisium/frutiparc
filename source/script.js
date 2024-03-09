@@ -1,11 +1,6 @@
 $(document).ready(function() {
 
-    $("body").on('click',"#pushbtnleft",function(){
-        console.log('here');
-        $('.wheel.rotating').toggleClass('hidden');
-    }).on('click','#bouille',function() {
-        $('#profil-card').removeClass('d-none');
-    }).on('click','.close-card',function() {
+    $("body").on('click','.close-card',function() {
         $(this).closest('.card').addClass('d-none');
     }).on('click','#menu-profil .onglet', function(){
 

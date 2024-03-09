@@ -1,7 +1,8 @@
 import { render } from 'preact';
+import {useState} from "react";
 render(<>Hello Frutiparc</>, document.querySelector('main')!);
 
-function AfficheProfil(){
+function UserProfil(){
     render(<>
         <div id="profil-card" class="card draggable">
             <div class="card-header d-flex">
@@ -34,7 +35,7 @@ function AfficheProfil(){
                                 <span class="zone">Indéterm.</span>
                             </div>
                         </div>
-                        <div class="close close-card cursor-pointer">
+                        <div class="close close-card cursor-pointer" onclick={CloseCard}>
                             <img src="./public/profil/actionsFiche/icone-x.png" width="16"/>
                         </div>
                     </div>
@@ -97,71 +98,123 @@ function AfficheProfil(){
         </div>
     </>, document.getElementById('bodycontainer'));
 }
-function AfficheHeader(){
+
+function CloseCard()
+{
+    console.log('fermer la card');
+}
+
+function HeaderMain(){
     return(
     <div id="headerbar" class="w-100 d-flex">
         <div id="resumeprofil" class="d-flex flex-row">
-            <div id="bouille" class="cursor-pointer" onClick={AfficheProfil}>
-                <img src="public/profil/bouille.png"/>
+            <div id="bouille" class="cursor-pointer" onClick={UserProfil}>
+                <Bouille/>
             </div>
             <div class="d-flex flex-column">
                 <div id="niveau" class="d-flex">
-                    <div class="levelbars">
-                        <div class="w-100 levelbar"></div>
-                        <div class="w-100 levelbar"></div>
-                        <div class="w-100 levelbar"></div>
-                        <div class="w-100 levelbar"></div>
-                        <div class="w-100 levelbar full"></div>
-                        <div class="w-100 levelbar full"></div>
-                        <div class="w-100 levelbar full"></div>
-                        <div class="w-100 levelbar full"></div>
-                        <div class="level">NIV 82</div>
-                    </div>
+                    <Level />
                     <div class="d-flex flex-column w-100">
-                        <div id="score" class="d-flex">
-                            <img id="coupe" src="public/profil/niveaux/digiCoupe.png" /><span>713705</span>
-                        </div>
-                        <div id="action"  class="d-flex flex-row w-100">
-                            <div class="iconaction"><img src="public/profil/niveaux/Aide.svg" width="16" height="16" /></div>
-                            <div class="iconaction"><img src="public/profil/niveaux/Forum.svg" width="16" height="16" /></div>
-                            <div class="iconaction"><img src="public/profil/niveaux/Mail.svg" width="16" height="16" /></div>
-                            <div class="iconaction"><img src="public/profil/niveaux/Historique.svg" width="16" height="16" /></div>
-                            <div class="iconaction"><img src="public/profil/niveaux/Warning.svg" width="16" height="16" /></div>
-                            <div class="iconaction"><img src="public/profil/niveaux/Jeux.svg" width="16" height="16" /></div>
-                        </div>
+                        <Score/>
+                        <IconActions/>
                     </div>
                 </div>
-                <div id="humeurs" class="d-flex flex-row w-100">
-                    <div class="tronche"><img src="public/profil/humeurs/normal.png" /></div>
-                    <div class="tronche"><img src="public/profil/humeurs/colere.png" /></div>
-                    <div class="tronche"><img src="public/profil/humeurs/triste.png" /></div>
-                    <div class="tronche"><img src="public/profil/humeurs/content.png" /></div>
-                    <div class="tronche"><img src="public/profil/humeurs/supaContent.png" /></div>
-                    <div class="tronche"><img src="public/profil/humeurs/mechant.png" /></div>
-                    <div class="tronche"><img src="public/profil/humeurs/timide.png" /></div>
-                </div>
+                <Humeurs/>
             </div>
         </div>
-        <div id="spaceWheelcontainer">
-            <div id="hollowheel" class="w-100">
-                <div id="spaceWheel">
-                </div>
-                <div class="wheel rotating fruit"></div>
-                <div class="wheel rotating horloge hidden"></div>
+        <SpaceWheel/>
+    </div>
+    );
+}
+
+function Bouille()
+{
+    return (<img src="public/profil/bouille.png"/>);
+}
+
+function Level()
+{
+    const niveau = 82;
+    return(
+        <div class="levelbars">
+            <div class="w-100 levelbar"></div>
+            <div class="w-100 levelbar"></div>
+            <div class="w-100 levelbar"></div>
+            <div class="w-100 levelbar"></div>
+            <div class="w-100 levelbar full"></div>
+            <div class="w-100 levelbar full"></div>
+            <div class="w-100 levelbar full"></div>
+            <div class="w-100 levelbar full"></div>
+            <div class="level">NIV {niveau}</div>
+        </div>
+    );
+}
+
+function Score()
+{
+    const score = '713705' ;
+    return(<div id="score" class="d-flex">
+        <img id="coupe" src="profil/niveaux/digiCoupe.png" /><span>{score}</span>
+    </div>);
+}
+
+function IconActions()
+{
+    const actions =[ 'Aide', 'Forum', 'Mail', 'Historique', 'Warning', 'Jeux'];
+    return (
+        <div id="action"  class="d-flex flex-row w-100">
+            {actions.map((action) => {
+                return (
+                    <div class="iconaction"><img src={`profil/niveaux/${action}.svg`} width="16" height="16" /></div>
+                );
+            })}
+        </div>
+    );
+}
+
+function Humeurs()
+{
+    const humeurs =[ 'normal', 'colere', 'triste', 'content', 'supaContent', 'mechant', 'timide'];
+    return (
+        <div id="humeurs" class="d-flex flex-row w-100">
+            {humeurs.map((humeur) => {
+                return (
+                    <div class="tronche"><img src={`profil/humeurs/${humeur}.png`} /></div>
+                );
+            })}
+        </div>
+    );
+}
+
+function SpaceWheel()
+{
+    const [disk, ChangeDisk] = useState(0);
+    const disks = ['fruit', 'horloge'];
+    return (
+    <div id="spaceWheelcontainer">
+        <div id="hollowheel" class="w-100">
+            <div id="spaceWheel">
             </div>
-            <div id="triangletop" class="d-flex w-100">
-                <div id="buttonleft"></div>
-                <div id="buttonright"></div>
-            </div>
-            <div id="buttonbtm" class="d-flex w-100">
-                <div id="pushbtnleft"></div>
-                <div id="pushbtnright"></div>
-            </div>
+            <SpaceWheelDisk disk={disks[disk%2]}/>
+        </div>
+        <div id="triangletop" class="d-flex w-100">
+            <div id="buttonleft"></div>
+            <div id="buttonright"></div>
+        </div>
+        <div id="buttonbtm" class="d-flex w-100">
+            <div id="pushbtnleft" onClick={() => ChangeDisk((disk+1))}></div>
+            <div id="pushbtnright"></div>
         </div>
     </div>
     );
 }
-function AfficheFusion()
+
+function SpaceWheelDisk(props)
+{
+    return(<div id="disk" className={['wheel', 'rotating', props.disk].join(' ')}></div>);
+}
+
+function HeaderFusion()
 {
     return(
         <div id="frusion">
@@ -170,4 +223,10 @@ function AfficheFusion()
         </div>
     );
 }
-render(<><AfficheHeader/><AfficheFusion/></>, document.getElementById('header')!);
+render(
+    <>
+        <HeaderMain/>
+        <HeaderFusion/>
+    </>
+    , document.getElementById('header')!
+);
