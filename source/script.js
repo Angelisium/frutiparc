@@ -1,10 +1,7 @@
 $(document).ready(function() {
 
-    $("body").on('click','.close-card',function() {
-        $(this).closest('.card').addClass('d-none');
-    }).on('click','#menu-profil .onglet', function(){
-
-        $('#menu-profil .onglet').removeClass('active');
+    $("body").on('click','#menu-profil .onglet', function(){
+        $('#menu-profil .onglet').removeClass('active d-flex');
         $(this).addClass('active');
         $('.panel-profil').addClass('d-none');
         $($(this).attr('data-target')).removeClass('d-none');

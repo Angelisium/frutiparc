@@ -289,6 +289,11 @@ body
     min-width: 400px;
     max-width:600px;
     min-height: 300px;
+    display:flex;
+    flex-direction: column;
+}
+#profil-card{
+    height :400px;
 }
 #bouilleprofil
 {
@@ -315,7 +320,7 @@ body
     background : var(--bg-medium);
     border: 2px solid #ccc;
     border-radius: 2px;
-    min-height:200px
+    height:100%;
 }
 .identite{
     align-items: center;
@@ -383,6 +388,7 @@ body
 #menu-profil{
     padding: 4px 0;
     border-bottom:2px solid var(--bg-light);
+    margin-bottom: 4px;
 }
 
 #menu-profil .onglet
@@ -401,3 +407,98 @@ body
 {
     text-decoration: underline;
 }
+#profil-perso,
+#profil-scores,
+#profil-frutiz{
+    color : #64823a;
+}
+#profil-perso{
+    height:100%;
+}
+#profil-perso div.d-flex{
+    align-content: center;
+    display: flex;
+    height: 100%;
+}
+#profil-perso dl,
+#profil-frutiz dl
+{
+    border-top :2px solid var(--bg-light);
+    flex-wrap : wrap;
+    margin  : 10px 5px 0;
+    padding : 5px 5px 5px;
+}
+#profil-perso dl{
+    border-bottom :2px solid var(--bg-light);
+    margin: auto 10px;
+}
+
+#profil-perso dd, #profil-perso dt,
+#profil-frutiz dd, #profil-frutiz dt
+{
+    flex: 1 0 50%;
+    margin : 0;
+    height : 1.5em;
+}
+#profil-perso dd,
+#profil-frutiz dd
+{
+    text-align:right;
+}
+#profil-perso dt,
+#profil-frutiz dt
+{
+    text-align:left;
+}
+.myfieldset{
+    border: 2px solid transparent;
+    border-top-color: var(--bg-light);
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top : 4px;
+}
+.myfieldset img{
+    margin : 0 10px;
+}
+.myfieldset legend{
+    font-weight:bold;
+    margin :0 auto;
+    padding : 0 10px;
+    font-size : 14px ;
+}
+.myfieldset .ascendant
+{
+    height : 35px;
+}
+.myfieldset .signe
+{
+    height : 70px;
+}
+#myScoring{
+    list-style: none;
+    margin:0;
+    padding : 0;
+}
+#myScoring li{
+    display: flex;
+    justify-content: space-between;
+    padding : 0 5px 3px;
+}
+#myScoring .game img{
+    margin-right : 4px;
+}
+#myScoring .disabled{
+    color : #444;
+}
+#myScoring span{
+    text-align: right;
+}
+#myScoring span.game{
+    text-align: left;
+    width:40%
+}
+#myScoring .score{width:40%}
+#myScoring .ranking{width:20%;}

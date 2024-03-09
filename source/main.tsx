@@ -3,11 +3,11 @@ import {useState} from "react";
 render(<>Hello Frutiparc</>, document.querySelector('main')!);
 
 function UserProfil(){
-    render(<>
+    return(<>
         <div id="profil-card" class="card draggable">
             <div class="card-header d-flex">
                 <div id="bouilleprofil" class="d-flex">
-                    <img src="public/profil/bouille.png"/>
+                    <img src="profil/bouille.png"/>
                     <div class="levelbars">
                         <div class="w-100 levelbar"></div>
                         <div class="w-100 levelbar"></div>
@@ -35,44 +35,44 @@ function UserProfil(){
                                 <span class="zone">Indéterm.</span>
                             </div>
                         </div>
-                        <div class="close close-card cursor-pointer" onclick={CloseCard}>
-                            <img src="./public/profil/actionsFiche/icone-x.png" width="16"/>
+                        <div class="close close-card cursor-pointer" onClick={CloseCard}>
+                            <img src="profil/actionsFiche/icone-x.png" width="16"/>
                         </div>
                     </div>
                     <div class="d-flex w-100 space-between align-items-center">
                         <div class="d-flex">
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/blog.png" />
+                                <img src="profil/actionsFiche/blog.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/chat.png" />
+                                <img src="profil/actionsFiche/chat.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/contact.png" />
+                                <img src="profil/actionsFiche/contact.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/totoche.png" />
+                                <img src="profil/actionsFiche/totoche.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/edit.png" />
+                                <img src="profil/actionsFiche/edit.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/editMail.png" />
+                                <img src="profil/actionsFiche/editMail.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/gomugomu.png" />
+                                <img src="profil/actionsFiche/gomugomu.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/ignore.png" />
+                                <img src="profil/actionsFiche/ignore.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/kick.png" />
+                                <img src="profil/actionsFiche/kick.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/mail.png" />
+                                <img src="profil/actionsFiche/mail.png" />
                             </div>
                             <div class="iconprofil">
-                                <img src="./public/profil/actionsFiche/unignore.png" />
+                                <img src="profil/actionsFiche/unignore.png" />
                             </div>
                         </div>
                         <div class="d-flex">
@@ -90,17 +90,60 @@ function UserProfil(){
                     <div data-target="#profil-scores" class="onglet w-100">scores</div>
                     <div data-target="#profil-bonus" class="onglet w-100">bonus</div>
                 </div>
-                <div id="profil-frutiz"	class="panel-profil"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit lectus, ultrices eu metus id, molestie tempus mauris. Aenean nec sapien sit amet ante finibus posuere. Curabitur at tortor a nisl vestibulum hendrerit.</div>
-                <div id="profil-perso" 	class="panel-profil d-none">Praesent ac orci pulvinar, dictum urna at, tincidunt lectus. Aliquam laoreet, nunc vitae efficitur accumsan, mi sapien luctus nibh, vitae viverra arcu leo a metus. Nam sodales ex nec rutrum dignissim. </div>
-                <div id="profil-scores" class="panel-profil d-none">Nunc dui turpis, venenatis ut felis quis, euismod hendrerit elit. Sed libero enim, volutpat sed ultricies ac, fringilla quis elit. Fusce scelerisque augue eu nulla vulputate, eget blandit erat molestie.</div>
+                <div id="profil-frutiz"	class="panel-profil">
+                    <fieldset class="myfieldset"><legend>frutisigne</legend>
+                        <img class="ascendant" src="frutiSigne/Cerises.svg"/><img class="signe" src="frutiSigne/Citron.svg"/><img class="ascendant" src="frutiSigne/Cerises.svg" />
+                    </fieldset>
+                    <dl class="d-flex flex-row">
+                    <dt>frutijob :</dt><dd>Frutiz</dd>
+                    <dt>consécration :</dt><dd>73%</dd>
+                    <dt>niveau :</dt><dd>82</dd>
+                    <dt>fruitAge :</dt><dd>420 mois</dd>
+                    <dt>inscription :</dt><dd>06 mar 24</dd>
+                    </dl>
+                    <dl class="d-flex flex-row">
+                        <dt>frutiBlog :</dt><dd>bim-badabim bim-badaboum</dd>
+                    </dl>
+                </div>
+                <div id="profil-perso" 	class="panel-profil d-none">
+                    <div class="d-flex">
+                        <dl class="d-flex flex-row">
+                            <dt>Prénom : </dt><dd>--</dd>
+                            <dt>Nom : </dt><dd>--</dd>
+                            <dt>Date de naissance : </dt><dd>--</dd>
+                            <dt>Activité : </dt><dd>--</dd>
+                            <dt>Pays : </dt><dd>--</dd>
+                            <dt>Région : </dt><dd>--</dd>
+                            <dt>Ville : </dt><dd>--</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div id="profil-scores" class="panel-profil d-none">
+                    <fieldset class="myfieldset"><legend>Scores du jour</legend></fieldset>
+                    <ul id="myScoring">
+                        <li><span class="game"><img class="icon" width="16" src="iconJeux/5.svg"/>Swapou 2</span> <span class="score">23"19</span><span class="ranking">1er</span></li>
+                        <li><span class="game"><img class="icon" width="16" src="iconJeux/1.svg"/>Frutisnake 2</span> <span class="score">23"19</span><span class="ranking">1er</span></li>
+                        <li><span class="game"><img class="icon" width="16" src="iconJeux/2.svg"/>Motion Ball 2</span> <span class="score">23"19</span><span class="ranking">1er</span></li>
+                        <li><span class="game"><img class="icon" width="16" src="iconJeux/8.svg"/>Kaluga</span> <span class="score">23"19</span><span class="ranking">1er</span></li>
+                        <li class="disabled"><span class="game "><img class="icon" width="16" src="iconJeux/10.svg"/>Burning Kiwi</span> <span class="score">23"19</span><span class="ranking">1er</span></li>
+                        <li class="disabled"><span class="game "><img class="icon" width="16" src="iconJeux/12.svg"/>Grapiz</span> <span class="score">23"19</span><span class="ranking">1er</span></li>
+                        <li class="disabled"><span class="game "><img class="icon" width="16" src="iconJeux/13.svg"/>Frutibandas</span> <span class="score">23"19</span><span class="ranking">1er</span></li>
+
+                    </ul>
+                </div>
                 <div id="profil-bonus" 	class="panel-profil d-none">Ut efficitur sagittis metus vitae vulputate. Integer sed dapibus leo. Donec convallis congue turpis, sed tempor massa dapibus id. Aliquam erat volutpat. Nam sagittis volutpat velit sed malesuada. Cras dapibus faucibus congue. </div>
             </div>
         </div>
-    </>, document.getElementById('bodycontainer'));
+    </>);
 }
+function AfficheUserProfil()
+{
 
+    render(<><UserProfil/></>, document.getElementById('bodycontainer')!);
+}
 function CloseCard()
 {
+    document.getElementsByClassName('card')[0].remove()
     console.log('fermer la card');
 }
 
@@ -108,7 +151,7 @@ function HeaderMain(){
     return(
     <div id="headerbar" class="w-100 d-flex">
         <div id="resumeprofil" class="d-flex flex-row">
-            <div id="bouille" class="cursor-pointer" onClick={UserProfil}>
+            <div id="bouille" class="cursor-pointer" onClick={AfficheUserProfil}>
                 <Bouille/>
             </div>
             <div class="d-flex flex-column">
@@ -202,7 +245,7 @@ function SpaceWheel()
             <div id="buttonright"></div>
         </div>
         <div id="buttonbtm" class="d-flex w-100">
-            <div id="pushbtnleft" onClick={() => ChangeDisk((disk+1))}></div>
+            <div id="pushbtnleft" onClick={() => ChangeDisk(disk+1)}></div>
             <div id="pushbtnright"></div>
         </div>
     </div>
@@ -211,7 +254,7 @@ function SpaceWheel()
 
 function SpaceWheelDisk(props)
 {
-    return(<div id="disk" className={['wheel', 'rotating', props.disk].join(' ')}></div>);
+    return(<div id="disk" className={"wheel rotating " + props.disk }></div>);
 }
 
 function HeaderFusion()
@@ -230,3 +273,4 @@ render(
     </>
     , document.getElementById('header')!
 );
+AfficheUserProfil();
