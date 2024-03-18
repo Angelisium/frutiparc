@@ -56,6 +56,12 @@ body
     height:78px;
     width:120px;
 }
+#console
+{
+    background-image: url("../public/boutonWheel/frusion0015t.png");
+    position: relative;
+    z-index: 5;
+}
 #resumeprofil
 {
 	margin:0.25em;
@@ -502,3 +508,21 @@ body
 }
 #myScoring .score{width:40%}
 #myScoring .ranking{width:20%;}
+
+.cdrom{
+    animation: rotatingcd 1s linear both infinite;
+    position:absolute;
+    top: 5px;
+    right:38px;
+    z-index: 4;
+    opacity:0;
+}
+
+@keyframes rotatingcd {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(1800deg);
+    }
+}

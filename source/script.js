@@ -7,5 +7,8 @@ $(document).ready(function() {
         $($(this).attr('data-target')).removeClass('d-none');
         console.log('puic');
     });
+    $("body").on('click','#console', function() {
+        $('.cdrom').css('opacity','1');
+    });
 	$('.card.draggable').draggable({ containment: "#bodycontainer"/*, scroll: false */});
 });
